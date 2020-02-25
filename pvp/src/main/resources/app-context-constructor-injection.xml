@@ -1,13 +1,18 @@
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
-			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
 
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="person" class="pvp.constructorInjection.Person">
+	<bean id="personConstructorArg" class="pvp.constructorInjection.Person">
 		<constructor-arg value="1" />
-		<constructor-arg value="Fotion" />
-		<constructor-arg value="Konomi" />
-
+		<constructor-arg value="FirstNameConstructorArg" />
+		<constructor-arg value="LastNameConstructorArg" />
 	</bean>
+	
+	<bean id="personCNamespace" class="pvp.constructorInjection.Person" c:id="2" c:firstName="FirstNameCNamespace" c:lastName="LastNameCNamespace"  />
+
 
 </beans>
