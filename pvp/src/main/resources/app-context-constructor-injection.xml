@@ -1,0 +1,13 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<bean id="person" class="pvp.constructorInjection.Person">
+		<constructor-arg value="1" />
+		<constructor-arg value="Fotion" />
+		<constructor-arg value="Konomi" />
+
+	</bean>
+
+</beans>
