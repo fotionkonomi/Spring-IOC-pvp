@@ -1,15 +1,19 @@
 package pvp.constructorInjection;
 
-public class Person {
+import pvp.BaseClass;
+
+public class Person extends BaseClass {
 
 	private Long id;
 	private String firstName;
 	private String lastName;
+	private WorkPosition workPosition; 
 	
-	public Person(Long id, String firstName, String lastName) {
+	public Person(Long id, String firstName, String lastName, WorkPosition workPosition) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.setWorkPosition(workPosition);
 	}
 
 	public Long getId() {
@@ -34,6 +38,14 @@ public class Person {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public WorkPosition getWorkPosition() {
+		return workPosition;
+	}
+
+	public void setWorkPosition(WorkPosition workPosition) {
+		this.workPosition = workPosition;
 	}
 	
 	

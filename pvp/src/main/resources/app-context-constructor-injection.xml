@@ -2,17 +2,45 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
- http://www.springframework.org/schema/beans/spring-beans.xsd">
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="personConstructorArg" class="pvp.constructorInjection.Person">
-		<constructor-arg value="1" />
-		<constructor-arg value="FirstNameConstructorArg" />
-		<constructor-arg value="LastNameConstructorArg" />
+	<bean id="personConstructorArg"
+		class="pvp.constructorInjection.Person">
+		<constructor-arg index="0" value="1" />
+		<constructor-arg index="1"
+			value="FirstNameConstructorArg" />
+		<constructor-arg index="2"
+			value="LastNameConstructorArg" />
+		<constructor-arg index="3" ref="workPosition" />
+	</bean>
+
+	<bean id="personCNamespace"
+		class="pvp.constructorInjection.Person" c:id="2"
+		c:firstName="FirstNameCNamespace" c:lastName="LastNameCNamespace"
+		c:workPosition-ref="workPosition" />
+
+	<bean id="workPosition"
+		class="pvp.constructorInjection.WorkPosition" c:id="1"
+		c:name="Software Developer" />
+
+	<bean id="constructorConfusionDefault" class="pvp.constructorInjection.confusion.PersonConfusionConstructor">
+		<constructor-arg value="22"></constructor-arg>
+	</bean>
+
+	<bean id="constructorConfusionString" class="pvp.constructorInjection.confusion.PersonConfusionConstructor">
+		<constructor-arg value="22" type="String"></constructor-arg>
+	</bean>
+
+	<bean id="constructorConfusionInt" class="pvp.constructorInjection.confusion.PersonConfusionConstructor">
+		<constructor-arg value="22" type="int" />
 	</bean>
 	
-	<bean id="personCNamespace" class="pvp.constructorInjection.Person" c:id="2" c:firstName="FirstNameCNamespace" c:lastName="LastNameCNamespace"  />
-
+	<context:component-scan base-package="pvp.constructorInjection.confusion"></context:component-scan>
 
 </beans>
