@@ -1,5 +1,7 @@
 package pvp;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class InjectionService<T extends BaseClass> {
@@ -12,4 +14,12 @@ public class InjectionService<T extends BaseClass> {
 		ctx.close();
 		return bean;
 	}
+	
+	public static <T> T getObjectFromJavaConfiguration(Class<? extends JavaConfigurationBaseClass> configurationClass, String name, Class<T> beanClass) {
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(configurationClass);
+		return ctx.getBean(name, beanClass);
+	
+	}
+	
+	
 }
