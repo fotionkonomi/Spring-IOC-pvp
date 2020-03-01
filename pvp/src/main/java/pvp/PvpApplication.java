@@ -53,6 +53,11 @@ public class PvpApplication implements CommandLineRunner {
 		log.info("setterInjectionRequiredAnnotation:" + restTemplate.exchange(urlForSetterInjectionWithRequiredAnnotation(), HttpMethod.GET, entity, String.class).getBody());
 		System.out.println("--------------------------------------------------------------------------------------------------------");
 		log.info("Bean Lifecycle:" + restTemplate.exchange(urlForBeanLifecycle(), HttpMethod.GET, entity, String.class).getBody());
+		System.out.println("--------------------------------------------------------------------------------------------------------");
+		log.info("beanInheritance:" + restTemplate.exchange(urlForBeanInheritanceParentBean(), HttpMethod.GET, entity, String.class).getBody());
+		System.out.println("--------------------------------------------------------------------------------------------------------");
+		log.info("beanInheritance:" + restTemplate.exchange(urlForBeanInheritanceChildBean(), HttpMethod.GET, entity, String.class).getBody());
+		
 	
 	}
 	
