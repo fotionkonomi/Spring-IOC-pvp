@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config></context:annotation-config>
+
+	<bean id="beanLifecycle" lazy-init="true" class="pvp.lifecycle.BeanLifecycle"
+		init-method="initMethod" destroy-method="destroyMethod">
+		<constructor-arg ref="requiredDependency"></constructor-arg>
+		<property name="lazyLoadedDependency"
+			ref="lazyLoadedDependency"></property>
+	</bean>
+
+	<bean id="requiredDependency" class="pvp.lifecycle.Dependency">
+		<property name="id">
+			<value>1</value>
+		</property>
+		<property name="name">
+			<value>Required Dependency</value>
+		</property>
+	</bean>
+
+	<bean id="lazyLoadedDependency" class="pvp.lifecycle.Dependency">
+		<property name="id">
+			<value>2</value>
+		</property>
+		<property name="name">
+			<value>Lazy Loaded Dependency</value>
+		</property>
+	</bean>
+</beans>

@@ -51,6 +51,9 @@ public class PvpApplication implements CommandLineRunner {
 		log.info("setterInjectionAnnotations:" + restTemplate.exchange(urlForSetterInjectionAnnotations(), HttpMethod.GET, entity, String.class).getBody());
 		System.out.println("--------------------------------------------------------------------------------------------------------");
 		log.info("setterInjectionRequiredAnnotation:" + restTemplate.exchange(urlForSetterInjectionWithRequiredAnnotation(), HttpMethod.GET, entity, String.class).getBody());
+		System.out.println("--------------------------------------------------------------------------------------------------------");
+		log.info("Bean Lifecycle:" + restTemplate.exchange(urlForBeanLifecycle(), HttpMethod.GET, entity, String.class).getBody());
+	
 	}
 	
 	private String urlForConstructorInjectionWithXmlConstructorArgs() {
@@ -95,6 +98,10 @@ public class PvpApplication implements CommandLineRunner {
 	
 	private String urlForSetterInjectionWithRequiredAnnotation() {
 		return "http://localhost:8080/setterInjection/annotations/required";
+	}
+	
+	private String urlForBeanLifecycle() {
+		return "http://localhost:8080/lifecycle";
 	}
 
 }
