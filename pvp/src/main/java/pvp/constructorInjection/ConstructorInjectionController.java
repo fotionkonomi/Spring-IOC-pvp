@@ -11,7 +11,7 @@ import pvp.constructorInjection.confusion.PersonConfusionConstructorAnnotation;
 
 @RestController
 @RequestMapping("/constructorInjection")
-public class Controller {
+public class ConstructorInjectionController {
 
 	@GetMapping("/constructorArgs")
 	public Person getPersonWithConstructorArgs() {
