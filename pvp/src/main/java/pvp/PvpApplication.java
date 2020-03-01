@@ -108,5 +108,12 @@ public class PvpApplication implements CommandLineRunner {
 	private String urlForBeanLifecycle() {
 		return "http://localhost:8080/lifecycle";
 	}
+	
+	private String urlForBeanInheritanceChildBean() {
+		return "http://localhost:8080/beanInheritance/child";
+	}
 
+	private String urlForBeanInheritanceParentBean() {
+		return "http://localhost:8080/beanInheritance/parent";
+	}
 }
