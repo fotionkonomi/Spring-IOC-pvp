@@ -51,6 +51,12 @@ public class PvpApplication implements CommandLineRunner {
 		log.info("setterInjectionAnnotations:" + restTemplate.exchange(urlForSetterInjectionAnnotations(), HttpMethod.GET, entity, String.class).getBody());
 		System.out.println("--------------------------------------------------------------------------------------------------------");
 		log.info("setterInjectionRequiredAnnotation:" + restTemplate.exchange(urlForSetterInjectionWithRequiredAnnotation(), HttpMethod.GET, entity, String.class).getBody());
+		System.out.println("--------------------------------------------------------------------------------------------------------");
+		log.info("beanInheritance:" + restTemplate.exchange(urlForBeanInheritanceParentBean(), HttpMethod.GET, entity, String.class).getBody());
+		System.out.println("--------------------------------------------------------------------------------------------------------");
+		log.info("beanInheritance:" + restTemplate.exchange(urlForBeanInheritanceChildBean(), HttpMethod.GET, entity, String.class).getBody());
+		
+	
 	}
 	
 	private String urlForConstructorInjectionWithXmlConstructorArgs() {
@@ -97,4 +103,11 @@ public class PvpApplication implements CommandLineRunner {
 		return "http://localhost:8080/setterInjection/annotations/required";
 	}
 
+	private String urlForBeanInheritanceParentBean() {
+		return "http://localhost:8080/beanInheritance/parent";
+	}
+	
+	private String urlForBeanInheritanceChildBean() {
+		return "http://localhost:8080/beanInheritance/child";
+	}
 }
