@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="beanForCollectionInjection"
+		class="pvp.collectioninjection.BeanForCollectionInjection">
+		<constructor-arg>
+			<value>Fotion Konomi</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="collectionInjectionBean"
+		class="pvp.collectioninjection.CollectionInjectionBean">
+		<property name="list">
+			<list>
+				<value>List Element 1</value>
+				<ref bean="beanForCollectionInjection" />
+			</list>
+		</property>
+
+		<property name="set">
+			<set>
+				<value>Set Element 1</value>
+				<ref bean="beanForCollectionInjection"></ref>
+			</set>
+		</property>
+
+		<property name="map">
+			<map>
+				<entry key="stringValue">
+					<value>Map Element 1</value>
+				</entry>
+				<entry key="refValue">
+					<ref bean="beanForCollectionInjection"></ref>
+				</entry>
+			</map>
+		</property>
+
+		<property name="props">
+			<props>
+				<prop key="firstName">Fotion</prop>
+				<prop key="lastName">Konomi</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

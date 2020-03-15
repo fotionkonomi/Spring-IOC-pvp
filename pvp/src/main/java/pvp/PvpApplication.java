@@ -57,7 +57,8 @@ public class PvpApplication implements CommandLineRunner {
 		log.info("beanInheritance:" + restTemplate.exchange(urlForBeanInheritanceParentBean(), HttpMethod.GET, entity, String.class).getBody());
 		System.out.println("--------------------------------------------------------------------------------------------------------");
 		log.info("beanInheritance:" + restTemplate.exchange(urlForBeanInheritanceChildBean(), HttpMethod.GET, entity, String.class).getBody());
-		
+		System.out.println("--------------------------------------------------------------------------------------------------------");
+		log.info("CollectionInjection:" + restTemplate.exchange(urlForCollectionInjection(), HttpMethod.GET, entity, String.class).getBody());
 	
 	}
 	
@@ -111,6 +112,10 @@ public class PvpApplication implements CommandLineRunner {
 	
 	private String urlForBeanInheritanceChildBean() {
 		return "http://localhost:8080/beanInheritance/child";
+	}
+	
+	private String urlForCollectionInjection() {
+		return "http://localhost:8080/collectionInjection";
 	}
 
 	private String urlForBeanInheritanceParentBean() {
